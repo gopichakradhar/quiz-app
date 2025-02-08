@@ -1,70 +1,139 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quiz App
 
-## Available Scripts
+A minimalistic, gamified quiz application built with React that fetches quiz data from an external API. This project is designed with a clean, student-friendly interface featuring a countdown timer, real‑time scoreboard, and an option to exit the quiz early.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Overview](#overview)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Notes](#notes)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This Quiz App is a React‑based application that displays multiple-choice questions with instant visual feedback. Each question is timed; if the user fails to answer before time expires, a penalty is applied. The app displays the current score and question count in a header section, and also includes an "Exit Quiz" button to allow users to end the quiz early and view their final score.
 
-### `npm test`
+**Important:** The quiz data is not hosted as a local static JSON file; instead, it is fetched dynamically from the external API endpoint at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Dynamic Quiz Data:**  
+  Fetches live quiz data from the external API endpoint.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Multiple-Choice Questions:**  
+  Presents quiz questions with four answer options and immediate feedback.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Timer:**  
+  A countdown timer for each question. If time expires, a penalty is applied and the next question is automatically loaded.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Scoreboard:**  
+  Displays the current score and question progress (e.g., "Question: 2 / 10").
 
-### `npm run eject`
+- **Exit Button:**  
+  Allows users to exit the quiz early. When clicked, the quiz ends immediately and displays the final score, marking remaining questions as unattempted.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Modular Design:**  
+  Code is organized into separate components and CSS files for improved maintainability and clarity.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+quiz-app/
+├── public/
+│   ├── index.html        // Main HTML file that loads global CSS (main.css)
+│   └── main.css          // Global styles for index.html (resets, base styling)
+├── src/
+│   ├── components/
+│   │   ├── Quiz.js       // Main quiz component handling data fetch, state, and quiz flow
+│   │   ├── QuestionCard.js  // Displays individual questions and answer options
+│   │   ├── Timer.js      // Countdown timer component for each question
+│   │   ├── Quiz.css      // Styles specific to the Quiz component
+│   │   ├── QuestionCard.css  // Styles for the question card component
+│   │   ├── Timer.css     // Styles for the timer display
+│   │   └── Summary.css   // Styles for the summary screen (final score)
+│   ├── App.js            // Root component that toggles between start, quiz, and summary screens
+│   ├── App.css           // Global styles for overall layout and start screen
+│   ├── index.js          // Entry point that renders the App component
+│   └── index.css         // Additional global styles for the React app
+├── package.json          // Project metadata and dependencies
+└── README.md             // This README file
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup Instructions
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Node.js](https://nodejs.org/) (v14+ recommended)
+- npm (bundled with Node.js)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
 
-### Code Splitting
+1. **Clone the Repository:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   git clone https://github.com/your-username/quiz-app.git
+   cd quiz-app
+   ```
 
-### Analyzing the Bundle Size
+2. **Install Dependencies:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm install
+   ```
 
-### Making a Progressive Web App
+3. **Run the Application in Development Mode:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   npm start
+   ```
 
-### Advanced Configuration
+   The app should open in your browser at [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Using the External API
 
-### Deployment
+This project fetches quiz data from the external API endpoint at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT). In the code (e.g., in **src/components/Quiz.js**), the API URL is set as:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```jsx
+const QUIZ_API = 'https://api.jsonserve.com/MwKrGT';
+```
 
-### `npm run build` fails to minify
+If you encounter CORS issues when fetching from this endpoint, consider using a server‑side proxy (see the [Notes](#notes) section).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Usage
+
+- **Starting the Quiz:**  
+  Click the “Start Quiz” button on the welcome screen.
+
+- **Answering Questions:**  
+  Each question displays multiple options. Click an option to receive immediate feedback (Correct! or Wrong!) and see your score update.
+
+- **Timer:**  
+  A countdown timer (15 seconds by default) is shown for each question. If time expires, a penalty is applied and the app automatically loads the next question.
+
+- **Exiting the Quiz:**  
+  Click the “Exit Quiz” button at any time to end the quiz immediately. The final score is then displayed.
+
+## Deployment
+
+To create a production build, run:
+
+```bash
+npm run build
+```
+
+This generates a **build** folder containing your static assets. You can deploy these files to any static hosting service (e.g., Netlify, Vercel, GitHub Pages). If you need to use a server‑side proxy for the external API in production, consider setting up an Express server.
+
+## Notes
+
+- **CORS Considerations:**  
+  The external API at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT) might not return the required CORS headers. If you experience “Failed to load quiz data” errors due to CORS, you may need to use a proxy:
+  - **For Development:** Add a proxy setting in your package.json or use a public CORS proxy.
+  - **For Production:** Implement a server‑side proxy (e.g., using Express) so your app fetches the data from your own domain.
+
+- **Dynamic Data:**  
+  Since the quiz data is fetched from an API, any updates at the source will be reflected in your app (as long as caching is managed appropriately).

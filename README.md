@@ -3,6 +3,10 @@
 
 A minimalistic, gamified quiz application built with React that fetches quiz data from an external API. This project is designed with a clean, student-friendly interface featuring a countdown timer, real‑time scoreboard, and an option to exit the quiz early.
 
+**Here is my primary account:**  
+[github.com/Gopi1603](https://github.com/Gopi1603)
+
+---
 ## Table of Contents
 
 - [Overview](#overview)
@@ -11,7 +15,7 @@ A minimalistic, gamified quiz application built with React that fetches quiz dat
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
 - [Deployment](#deployment)
-- [License](#license)
+
 
 ## Overview
 

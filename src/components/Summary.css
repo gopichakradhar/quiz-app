@@ -1,0 +1,32 @@
+/* src/components/Summary.css */
+.summary {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .summary h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #27ae60;
+  }
+  
+  .summary p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .summary button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .summary button:hover {
+    background-color: #2980b9;
+  }
+  

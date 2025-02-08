@@ -1,0 +1,56 @@
+/* src/components/QuestionCard.css */
+.question-card {
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .question-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #34495e;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .option-button {
+    margin: 5px 0;
+    padding: 12px;
+    border: 2px solid transparent;
+    background-color: #ecf0f1;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .option-button:hover:not(:disabled) {
+    background-color: #d0d7de;
+  }
+  
+  .option-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+  
+  .option-button.correct {
+    background-color: #4caf50;
+    color: #fff;
+    border-color: #43a047;
+  }
+  
+  .option-button.incorrect {
+    background-color: #f44336;
+    color: #fff;
+    border-color: #e53935;
+  }
+  
+  .feedback {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  

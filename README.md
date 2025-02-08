@@ -11,34 +11,33 @@ A minimalistic, gamified quiz application built with React that fetches quiz dat
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
 - [Deployment](#deployment)
-- [Notes](#notes)
 - [License](#license)
 
 ## Overview
 
-This Quiz App is a React‑based application that displays multiple-choice questions with instant visual feedback. Each question is timed; if the user fails to answer before time expires, a penalty is applied. The app displays the current score and question count in a header section, and also includes an "Exit Quiz" button to allow users to end the quiz early and view their final score.
+This Quiz App is a React‑based application that displays multiple-choice questions with instant visual feedback. Each question is timed; if the user fails to answer before time expires, a penalty is applied. The app displays the current score and question count in a header section and includes an "Exit Quiz" button to allow users to end the quiz early and view their final score.
 
-**Important:** The quiz data is not hosted as a local static JSON file; instead, it is fetched dynamically from the external API endpoint at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT).
+**Important:** The quiz data is fetched dynamically from the external API endpoint at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT).
 
 ## Features
 
 - **Dynamic Quiz Data:**  
-  Fetches live quiz data from the external API endpoint.
+  The quiz data is obtained live from an external API endpoint.
 
 - **Multiple-Choice Questions:**  
-  Presents quiz questions with four answer options and immediate feedback.
+  Displays questions with four answer options and provides immediate feedback.
 
-- **Timer:**  
-  A countdown timer for each question. If time expires, a penalty is applied and the next question is automatically loaded.
+- **Countdown Timer:**  
+  A 15‑second timer for each question. If time expires, a penalty is applied, and the next question loads automatically.
 
 - **Scoreboard:**  
   Displays the current score and question progress (e.g., "Question: 2 / 10").
 
 - **Exit Button:**  
-  Allows users to exit the quiz early. When clicked, the quiz ends immediately and displays the final score, marking remaining questions as unattempted.
+  Allows users to exit the quiz at any time. The quiz ends immediately and shows the final score, marking remaining questions as unattempted.
 
 - **Modular Design:**  
-  Code is organized into separate components and CSS files for improved maintainability and clarity.
+  The code is organized into separate components and CSS files for maintainability and clarity.
 
 ## Project Structure
 
@@ -61,7 +60,7 @@ quiz-app/
 │   ├── index.js          // Entry point that renders the App component
 │   └── index.css         // Additional global styles for the React app
 ├── package.json          // Project metadata and dependencies
-└── README.md             // This README file
+└── README.md             // This file
 ```
 
 ## Setup Instructions
@@ -76,7 +75,7 @@ quiz-app/
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/quiz-app.git
+   git clone https://github.com/Gopi1603/quiz-app.git
    cd quiz-app
    ```
 
@@ -96,13 +95,13 @@ quiz-app/
 
 ### Using the External API
 
-This project fetches quiz data from the external API endpoint at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT). In the code (e.g., in **src/components/Quiz.js**), the API URL is set as:
+This project fetches quiz data from the external API endpoint at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT). In the code (in **src/components/Quiz.js**), the API URL is set as:
 
 ```jsx
 const QUIZ_API = 'https://api.jsonserve.com/MwKrGT';
 ```
 
-If you encounter CORS issues when fetching from this endpoint, consider using a server‑side proxy (see the [Notes](#notes) section).
+If you encounter CORS issues when fetching from this endpoint, you may need to use a proxy solution.
 
 ## Usage
 
@@ -113,10 +112,10 @@ If you encounter CORS issues when fetching from this endpoint, consider using a 
   Each question displays multiple options. Click an option to receive immediate feedback (Correct! or Wrong!) and see your score update.
 
 - **Timer:**  
-  A countdown timer (15 seconds by default) is shown for each question. If time expires, a penalty is applied and the app automatically loads the next question.
+  A countdown timer (15 seconds by default) is shown for each question. If time expires, a penalty is applied and the next question loads automatically.
 
 - **Exiting the Quiz:**  
-  Click the “Exit Quiz” button at any time to end the quiz immediately. The final score is then displayed.
+  Click the “Exit Quiz” button to end the quiz at any time. The quiz will stop immediately and display your final score.
 
 ## Deployment
 
@@ -126,14 +125,10 @@ To create a production build, run:
 npm run build
 ```
 
-This generates a **build** folder containing your static assets. You can deploy these files to any static hosting service (e.g., Netlify, Vercel, GitHub Pages). If you need to use a server‑side proxy for the external API in production, consider setting up an Express server.
+This generates a **build** folder containing the static assets of your React app. You can deploy these files to any static hosting service.
 
-## Notes
+For example, I deploy my small project assignments via GitHub Pages and other hosting platforms. You can view the deployed quiz app at:
+[https://quiz-nrncd84oh-gopichakradhars-projects.vercel.app/](https://quiz-nrncd84oh-gopichakradhars-projects.vercel.app/) *(if applicable)*
 
-- **CORS Considerations:**  
-  The external API at [https://api.jsonserve.com/MwKrGT](https://api.jsonserve.com/MwKrGT) might not return the required CORS headers. If you experience “Failed to load quiz data” errors due to CORS, you may need to use a proxy:
-  - **For Development:** Add a proxy setting in your package.json or use a public CORS proxy.
-  - **For Production:** Implement a server‑side proxy (e.g., using Express) so your app fetches the data from your own domain.
-
-- **Dynamic Data:**  
-  Since the quiz data is fetched from an API, any updates at the source will be reflected in your app (as long as caching is managed appropriately).
+The source code is hosted on my GitHub repository:  
+[https://github.com/Gopi1603](https://github.com/Gopi1603)
